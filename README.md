@@ -48,7 +48,7 @@ block.setShadowKey(key);
 ```
 如果Adapter的数据发生更改，LinerRoundShadow中块信息也需要更新，此时可以调用LinerRoundShadow.clearBlock方法清空之后再添加合适的块。
 
-#AShadow2
+# AShadow2
 [点这里可以查看AShadow2用法](https://github.com/Mosect/AShadow)
 
 # 联系信息
