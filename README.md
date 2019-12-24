@@ -1,5 +1,5 @@
 # ARecyclerShadow
-Android RecyclerView阴影实现，基于AShadow2实现
+Android RecyclerView阴影实现，基于[AShadow2](https://github.com/Mosect/AShadow)实现
 
 ![跨Item显示阴影](imgs/img01.jpg)
 
