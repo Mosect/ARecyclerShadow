@@ -19,12 +19,33 @@ implementation 'com.mosect.ARecyclerShadow:1.0.0'
 * SingleItemShadow：所有Item都使用同一个阴影显示
 
 ## 说明：
-ShadowItemDecoration是实现阴影显示的ItemDecoration，抽象类，需要实现getShadowKey方法，为Item提供一种阴影；
+### ShadowItemDecoration
+实现阴影显示的ItemDecoration，抽象类，需要实现getShadowKey方法，为Item提供一种阴影
 
-SingleItemShadow继承于ShadowItemDecoration，如果整个RecyclerView的Item都使用一种阴影，可以使用此类对象为RecyclerView的Item显示阴影
-
-LinerRoundShadow是实现跨Item实现阴影的ItemDecoration，仅支持LinearLayoutManager布局。可以往LinerRoundShadow添加多个块（Block），每块都代表一个阴影，添加代码如下：
+### SingleItemShadow
+继承于ShadowItemDecoration，如果整个RecyclerView的Item都使用一种阴影，可以使用此类对象为RecyclerView的Item显示阴影
 ```
+// 创建阴影key
+RoundShadow.Key shadowKey = new RoundShadow.Key();
+shadowKey.solidColor = Color.parseColor("#ffffff");
+shadowKey.shadowColor = Color.parseColor("#0d000000");
+shadowKey.shadowRadius = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10,
+        getResources().getDisplayMetrics());
+shadowKey.radii = new float[8];
+float round = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10,
+        getResources().getDisplayMetrics());
+Arrays.fill(shadowKey.radii, round);
+// 创建item的阴影渲染器
+SingleItemShadow itemShadow = new SingleItemShadow(shadowKey);
+// 往RecyclerView添加渲染器
+recyclerView.addItemDecoration(itemShadow);
+```
+
+### LinerRoundShadow
+实现跨Item实现阴影的ItemDecoration，仅支持LinearLayoutManager布局。可以往LinerRoundShadow添加多个块（Block），每块都代表一个阴影，添加代码如下：
+```
+// 创建块阴影渲染器
+LinerRoundShadow shadow = new LinerRoundShadow();
 // 产生块阴影
 LinearRoundShadow.Block block = shadow.block();
 // 设置块位置
@@ -45,10 +66,13 @@ key.shadowRadius = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 5,
 key.shadowColor = Color.parseColor("#0d000000");
 // 将阴影信息设置到块阴影信息中
 block.setShadowKey(key);
+
+// 往RecyclerView添加渲染器
+recyclerView.addItemDecoration(shadow);
 ```
 如果Adapter的数据发生更改，LinerRoundShadow中块信息也需要更新，此时可以调用LinerRoundShadow.clearBlock方法清空之后再添加合适的块。
 
-#AShadow2
+# AShadow2
 [点这里可以查看AShadow2用法](https://github.com/Mosect/AShadow)
 
 # 联系信息
