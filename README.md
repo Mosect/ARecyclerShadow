@@ -6,9 +6,17 @@ Android RecyclerView阴影实现，基于[AShadow2](https://github.com/Mosect/AS
 ![单个Item显示阴影](imgs/img02.jpg)
 
 ## 使用
+在项目根节点的build.gradle中配置：
 ```
-implementation 'com.mosect.AShadow:2.0.5'
-implementation 'com.mosect.ARecyclerShadow:1.0.0'
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+在需要引入的项目build.gradle中添加
+```
+implementation 'com.github.Mosect:ARecyclerShadow:1.0.1'
 ```
 
 ## 更新记录
