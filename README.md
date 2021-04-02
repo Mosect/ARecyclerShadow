@@ -6,6 +6,8 @@ Android RecyclerView阴影实现，基于[AShadow2](https://github.com/Mosect/AS
 ![单个Item显示阴影](imgs/img02.jpg)
 
 ## 使用
+[![](https://jitpack.io/v/Mosect/ARecyclerShadow.svg)](https://jitpack.io/#Mosect/ARecyclerShadow)
+
 在项目根节点的build.gradle中配置：
 ```
 allprojects {
@@ -81,7 +83,7 @@ recyclerView.addItemDecoration(shadow);
 如果Adapter的数据发生更改，LinerRoundShadow中块信息也需要更新，此时可以调用LinerRoundShadow.clearBlock方法清空之后再添加合适的块。
 
 # AShadow2
-[点这里可以查看AShadow2用法](https://github.com/Mosect/AShadow)
+[点这里可以查看AShadow2用法](https://github.com/Mosect/AShadow2)
 
 # 联系信息
 ```
